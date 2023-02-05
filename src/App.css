@@ -15,7 +15,7 @@ body{
 }
 
 .cast{
-    width: 50%;
+    width: 20%;
     display: flex;
     padding:10px;
     background-color: rebeccapurple;
@@ -23,19 +23,26 @@ body{
     align-content: center;
     justify-content: center;
     margin:0;
+    position: relative;
     
     
 }
 
 .characters{
-    width: 500px;
+    width: 1000px;
     display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap:10px;
     height: auto;
     margin: 0;
 }
-.droppable{
-    width: 750px;
-    height: auto;
+.divxx{
+    width: 30px;
+    position: absolute;
+       left: 1px; ;
+    padding: 0;
+    margin: 0;
 }
