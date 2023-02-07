@@ -1,3 +1,4 @@
+import { useLayoutEffect, useState } from 'react'
 import {createPortal} from 'react-dom'
  
 
@@ -9,10 +10,24 @@ function createWrapperAndAppendToBody(wrapperId){
 }
 
 const ReactPortal=({children,wrapperId="react-portal-wrapper"})=>{
-    let element=document.querySelector(wrapperId)
-    if(!element){
-        element=createWrapperAndAppendToBody(wrapperId)
-    }
-    return createPortal(children,element)
+    const[wrapperElement,setWrapperElement]=useState(null)
+    useLayoutEffect(()=>{
+        let element=document.querySelector(wrapperId)
+        let systemCreated=false
+        if(!element){
+            systemCreated = true;
+            element=createWrapperAndAppendToBody(wrapperId)
+        }
+        setWrapperElement(element)
+        return()=>{
+            if(systemCreated && element){
+                element.remove()
+            }
+        }
+    },[wrapperId])
+
+    if(wrapperElement===null) return null;
+   
+    return createPortal(children,wrapperElement)
 }
 export default ReactPortal

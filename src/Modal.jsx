@@ -24,7 +24,7 @@ const OVERLAY_STYLE={
 }
 const Modal=(props)=>{
 if(!props.open) return null
-return( <ReactPortal wrapperId="#portal">
+return( <ReactPortal wrapperId="#portal" >
     <div style={OVERLAY_STYLE}>
 
     </div>
