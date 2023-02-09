@@ -1,5 +1,5 @@
 import react from "react";
-import ReactDOM from 'react-dom/client'
+
 import ReactPortal from "./ReactPortal";
 
 
