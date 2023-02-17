@@ -4,15 +4,7 @@
 
 import React from "react"
 
-/**
- * Challenge: update the function component to a class component.
- * 
- * Bonus: you can use class fields and arrow function methods
- * to avoid needing to add a constructor method 😄
- * 
- * Tip: Move the `let starIcon = ...` line into the `render` method
- * before the `return`, since that is display logic
- */
+
 export default class App extends React.Component {
     
     
