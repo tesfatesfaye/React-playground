@@ -5,15 +5,16 @@ function App() {
   const app=useRef(null)
   const[hover,setHover]=useState(false)
   const [down,setDown]=useState("")
+  const[newHover,setNewHover]=useState(false)
   const toggleHover=(value)=>{
     setHover(value)
     console.log(hover)
   } 
    const toggleMouseDown=(value)=>{
       setDown(value)
-      console.log(value)
+      
   }
-
+    
 
   useEffect(()=>{
     if(hover===false && down==='mousedown'){
@@ -66,10 +67,13 @@ function App() {
   return (
     <div className="App" ref={app}>
      <h1>The cast of the simpsons</h1>
-     <DragDropContext onDragEnd={handleOnDragEnd}   >
+     <div style={{width:"500px", margin:'20px',background:'black',height:'500px'} }
+     onMouseLeave={()=>setNewHover(false)}
+     onMouseEnter={()=>setNewHover(true)}></div>
+     <DragDropContext onDragEnd={handleOnDragEnd} >
         <Droppable droppableId='characters'  >
           {(provided)=>{
-             return( <ul className='characters'{...provided.droppableProps} ref={provided.innerRef} 
+             return( <div className='characters'{...provided.droppableProps} ref={provided.innerRef} 
               
              onMouseDown={()=>toggleMouseDown('mousedown')} onMouseUp={()=>toggleMouseDown('mouseup')} >
               {characters.map((x,i) => {
@@ -78,12 +82,12 @@ function App() {
                 <Draggable key={x.id} draggableId={x.id} index={i}  isDragDisabled={hover ? false : true}>
                   {(prov)=>(
                   
-                        <li className='cast'{...prov.draggableProps} {...prov.dragHandleProps} ref={prov.innerRef} 
+                        <div className='cast'{...prov.draggableProps} {...prov.dragHandleProps} ref={prov.innerRef} 
                        
                         >
                           <div className='divxx' onMouseEnter={()=>toggleHover(true)}  onMouseLeave={()=>toggleHover(false)}> xx</div>
                      {x.name}
-                     </li>
+                     </div>
 
                   )}
                  
@@ -92,7 +96,7 @@ function App() {
               })}
 
               {provided.placeholder}
-            </ul>
+            </div>
              )
           }}
          
