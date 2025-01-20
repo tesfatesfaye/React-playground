@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    gap: 10px;
+}
+
+.cast{
+    width: 20%;
+    display: flex;
+    padding:10px;
+    background-color: rebeccapurple;
+    color: green;
+    align-content: center;
+    justify-content: center;
+    margin:0;
+    position: relative;
+    
+    
+}
+
+.characters{
+    width: 1000px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+    height: auto;
+    margin: 0;
+}
+.divxx{
+    width: 30px;
+    position: absolute;
+       left: 1px; ;
+    padding: 0;
+    margin: 0;
+}
